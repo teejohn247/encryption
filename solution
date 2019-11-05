@@ -1,0 +1,60 @@
+var final = [];
+  var first = [];
+  var even = [];
+  
+function recursive(z){
+  var rest = [];
+  console.log(final)
+var e = even.splice(0,1)
+
+   for (var i = 0; i < z.length; i++) {
+   var y = z[i].splice(1,e);
+   rest.push(y)
+}
+
+var g = z.flat();
+if(g.length % 2 == 0){
+  g.splice(g.length - 1,1)
+   final.push(g.flat().join(''));
+   var p = rest;
+   final.push(rest.join(''))
+    return final.join('');
+}else{
+   final.push(z.flat())
+   console.log(final)
+    var p = rest;
+   final.push(rest);
+    return final;
+}
+}
+
+function go(k, q){
+  var secAns = [];
+  var word = k.replace(/[' ']/g, ',').split(',').join('').split('');
+  for (let i = q; i > 0; i--) {
+    if(i%2 == 1){
+      even.push(i)
+    }
+  }
+  var a = even.splice(0,1);
+  var key = parseInt(a, 10) + 1;
+for (var i = 0; i < word.length; i++) {
+  var slic = word.splice(0,key)
+  first.push(slic)
+  if(word){
+    word.push('x')
+  }
+}
+for (var i = 0; i < first.length; i++) {
+  var u = first[i].splice(0,1);
+    secAns.push(u)
+}
+  final.push(secAns.flat().join(''))
+  console.log(final)
+  if (even) {
+ return recursive(first);
+  }else{
+    return secAns;
+  }
+}
+document.write(go(('defend the east wall'), 3))
