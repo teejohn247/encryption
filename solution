@@ -1,60 +1,171 @@
-var final = [];
-  var first = [];
-  var even = [];
+		//decrypt
+    const final = [];
+		    function recursive(ar){
+			const temp1 = [];
+		    const temp2 = [];
+		    console.log(ar.flat())
+		     if(ar.flat().length == 16){
+		     	console.log(final)
+		     }
+			for (var i = 0; i < ar.length; i++) {
+			const ab = ar[i].splice(0, 1)
+			console.log(ab)
+			temp1.push(ab)
+			}
+			for (var i = 0; i < ar.length; i++) {
+			const length = ar[i].length
+			const cd = ar[i].splice(length - 1, 1)
+			console.log(cd)
+			temp2.push(cd)
+			}
+			const arr = temp1.map((a,i) => [a,temp2[i]])
+            final.push(arr.flat().join(''))
+            console.log(final.flat().join('').split(','))
+		}
+		function encrypt(characters, key) {
+			// body...
+			const first = [];
+			const second = [];
+			const b = ['-'];
+		const c = characters.split('');
+		const d =Array.from(c.join('').replace(/ /g, '-'))
+		for (var i = 0; i < d.length; i++) {
+		if(d[i] === '-'){
+           first.push(i)
+		}
+		}
+		const p = Array.from(characters.split(' ').join(''))
+		console.log(p)
+		for (var i = 0; i < p.length; i++) {
+			if(p)
+			second.push([p.splice(0, key + 1)])
+		}
+		console.log(second)
+			let a = second.flat()
+			let bvn = [];
+			let cctv = [];
+		if(p.length == 0 && a[0].length > a[a.length - 1].length){
+			const add = ['x'.repeat(a[0].length - a[a.length - 1].length)].flat()
+			console.log(add)
+			bvn = a.splice(a.length - 1, 1).flat();
+			cctv = add;
+			const q = [bvn, cctv].flat()
+			a= [...a, q]
+			console.log(a)
+			 
+		}
+		else if(p){
+			const add =['x'.repeat((key + 1) - p.length)]
+			add.unshift(p.splice(0, p.length))
+			 a.push(add.flat().join('').split(''))
+			 console.log(add)
+		}
+		for (var i = 0; i < a.length; i++) {
+			final.push(a[i].splice(0,1).flat())
+			console.log(final.flat())
+		}
+		const gg = a.flat();
+		console.log(gg)
+		const sd = [];
+		for (var i = 0; i < a.length; i++) {
+		const gg = a.flat();
+		console.log(a.flat())
+		console.log(final.length)
+		console.log(gg)
+			const eed = final.flat().join('').split(',');
+			console.log(eed);
+			console.log(gg.length);
+			console.log(first.length)
+			console.log(a.join())
+            if(gg.length < 9){
+            	console.log(a.flat())
+				final.push(a.flat())
+			}
+			console.log(a.flat())
+
+		if(a.flat().length > 3){
+			console.log(a)
+			recursive(a)
+		}
+			console.log(a.flat())
+			console.log(sd)
+
+		if(a.flat().length){
+			console.log(final.join('').split(''))
+	}
+
+		else{
+			const ans = final.join('').split('');
+			console.log(ans)
+			console.log(final)
+			const see = ans.filter(a => a !== 'x');
+          for (var i = 0; i < first.length; i++) {
+          	ans.splice(first[i], 0, ' ')
+          }
+          return ans.join(' ').replace(/[',']/g, '').split(',');
+	}
+		}
+			return final.join('').replace(/[',']/g, '');
+
+	}
   
-function recursive(z){
-  var rest = [];
-  console.log(final)
-var e = even.splice(0,1)
+  
+  //encryption
+  
+  function decrypt(enc, key){
+		const space = []
+		for (var i = 0; i < enc.length; i++) {
+			if(enc[i] == ' '){
+				space.push(i)
+			}
+		}
+		const ad = enc.split(' ').join('').split('')
+		console.log(ad)
 
-   for (var i = 0; i < z.length; i++) {
-   var y = z[i].splice(1,e);
-   rest.push(y)
-}
+		const size = Math.floor(ad.length/(key + 1))
+		console.log(size)
+		const first = ad.splice(0, size)
+		const first1 = [];
+		const second = [];
+		console.log(first)
+		for (var i = 0; i < ad.length; i++) {
+			second.push(ad.splice(0,first.length * 2))
+		}
+		first1.push('x'.repeat(second[0].length - first.length))
+		const first2 = first1.join('').split('');
+		const arr1 = first.map((a,i) => [a,first2[i]]).flat();
+		const last = second.splice(second.length - 1, 1).flat();
+		const now = second.unshift(arr1);
+		const ans = [];
+		console.log(now)
+		console.log(last)
+		console.log(second)
+		function nn(ar){
+		for (var i = 0; i < ar.length; i++) {
+			const rr = ar[i].splice(0,1)
+			ans.push(rr)
+		}
+		}
+	const on = [];
+		for (var i = 0; i < last.length + 2; i++) {
+			on.push(last.splice(0,2).join(''))
+		}
+		const final = [];
 
-var g = z.flat();
-if(g.length % 2 == 0){
-  g.splice(g.length - 1,1)
-   final.push(g.flat().join(''));
-   var p = rest;
-   final.push(rest.join(''))
-    return final.join('');
-}else{
-   final.push(z.flat())
-   console.log(final)
-    var p = rest;
-   final.push(rest);
-    return final;
-}
-}
+		second.push(on)
+		function nn(secon){
+	    for(var i = 0; i < secon.length; i++) {
+		final.push(secon[i].splice(0,1))
+	    }
+	    for(var i = secon.length - 2; i >= 0; i--) {
+	    	final.push(secon[i].splice(0,1))
+	    }
+       }
 
-function go(k, q){
-  var secAns = [];
-  var word = k.replace(/[' ']/g, ',').split(',').join('').split('');
-  for (let i = q; i > 0; i--) {
-    if(i%2 == 1){
-      even.push(i)
-    }
-  }
-  var a = even.splice(0,1);
-  var key = parseInt(a, 10) + 1;
-for (var i = 0; i < word.length; i++) {
-  var slic = word.splice(0,key)
-  first.push(slic)
-  if(word){
-    word.push('x')
-  }
-}
-for (var i = 0; i < first.length; i++) {
-  var u = first[i].splice(0,1);
-    secAns.push(u)
-}
-  final.push(secAns.flat().join(''))
-  console.log(final)
-  if (even) {
- return recursive(first);
-  }else{
-    return secAns;
-  }
-}
-document.write(go(('defend the east wall'), 3))
+		const fg = second.flat();
+		console.log(fg)
+		for (var i = 0; i < fg.length; i++) {
+			nn(second)
+		}
+		return final.join('').split('').filter(a => a != 'x');
+		}
